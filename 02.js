@@ -12,7 +12,17 @@
  * @param {string} title
  * @returns {Array} 새로운 todos 배열
  */
-function createTodo(todos, title) {}
+function createTodo(todos, title) {
+    const newID = todos.length > 0 ? Math.max(...todos.map(todo => todo.id)) + 1 : 1;
+
+    const newTodo = {
+        id: newID,
+        title: title,
+        completed: false,
+    }
+
+    return [...todos, newTodo];
+}
 
 // export 수정 불가
 export { createTodo };
